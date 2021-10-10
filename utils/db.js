@@ -28,4 +28,4 @@ const DBClient = class {
   }
 };
 
-export default new DBClient();
+module.exports = new DBClient();

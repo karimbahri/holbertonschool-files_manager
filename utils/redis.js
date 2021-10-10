@@ -20,4 +20,4 @@ const RedisClient = class {
     await this.client.del(key);
   }
 };
-export default new RedisClient();
+module.exports = new RedisClient();
