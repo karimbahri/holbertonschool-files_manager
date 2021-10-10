@@ -7,4 +7,4 @@ route
   .get("/status", AppController.getStatus)
   .get("/stats", AppController.getStat);
 
-export default route;
+module.exports = route;
