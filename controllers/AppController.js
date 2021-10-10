@@ -1,6 +1,6 @@
 /* eslint-disable */
-const DBClient = require("../utils/db");
-const redisClient = require("../utils/redis");
+import DBClient from "../utils/db";
+import redisClient from "../utils/redis";
 
 /* -------------getStatus------------- */
 exports.getStatus = (req, res) => {
