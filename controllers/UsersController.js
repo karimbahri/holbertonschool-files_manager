@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* userControl */
+
 const DBClient = require("../utils/db");
 const sha1 = require("sha1");
 
