@@ -7,7 +7,7 @@ const RedisClient = class {
     this.client.on("error", (err) => {
       console.log(err);
     });
-    this.get = util.promisify(this.client.get).bind(this.client);
+    this.client.get = util.promisify(this.client.get).bind(this.client);
   }
   isAlive() {
     return this.client.connected;
