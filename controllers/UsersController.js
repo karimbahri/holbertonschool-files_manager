@@ -17,7 +17,7 @@ exports.postNew = async (req, res) => {
     const user_data = await DBClient.db
       .collection("users")
       .insertOne({ email, password: h_password });
-    res.status(201).send({ email, id: user_data._id });
+    return res.status(201).send({ email, id: user_data._id });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
