@@ -10,12 +10,15 @@ const DBClient = class {
     const client = new MongoClient(`mongodb://${db_host}:${db_port}`, {
       useUnifiedTopology: true,
     });
-    client.connect((err, data) => {
-      if (!err) {
-        this.status = true;
-        this.db = data.db(db_database);
+    client.connect((err) => {
+      if (err) {
+        // this.status = true;
+        // this.db = client.db(db_database);
+        console.log(err);
       }
     });
+    this.status = true;
+    this.db = client.db(db_database);
   }
   isAlive() {
     return this.status;
