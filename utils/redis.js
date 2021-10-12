@@ -1,11 +1,13 @@
 /* eslint-disable */
 import redis from "redis";
+import util from "util";
 const RedisClient = class {
   constructor() {
     this.client = redis.createClient();
     this.client.on("error", (err) => {
       console.log(err);
     });
+    this.get = util.promisify(this.client.get).bind(this.client);
   }
   isAlive() {
     return this.client.connected;
