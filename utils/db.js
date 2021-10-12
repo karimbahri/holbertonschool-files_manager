@@ -11,11 +11,10 @@ const DBClient = class {
       useUnifiedTopology: true,
     });
     client.connect((err) => {
-      if (err) {
-        console.log(err);
+      if (!err) {
+        this.status = true;
+        this.db = client.db(db_database);
       }
-      this.status = true;
-      this.db = client.db(db_database);
     });
   }
   isAlive() {
