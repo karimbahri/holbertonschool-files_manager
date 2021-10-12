@@ -16,7 +16,7 @@ const RedisClient = class {
     return await this.client.get(key);
   }
   async set(key, value, duration) {
-    await this.client.setex(key, value, duration);
+    await this.client.setex(key, duration, value);
   }
   async del(key) {
     await this.client.del(key);
