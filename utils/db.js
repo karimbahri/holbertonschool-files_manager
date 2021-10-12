@@ -12,13 +12,11 @@ const DBClient = class {
     });
     client.connect((err) => {
       if (err) {
-        // this.status = true;
-        // this.db = client.db(db_database);
         console.log(err);
       }
+      this.status = true;
+      this.db = client.db(db_database);
     });
-    this.status = true;
-    this.db = client.db(db_database);
   }
   isAlive() {
     return this.status;
