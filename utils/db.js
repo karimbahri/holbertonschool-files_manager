@@ -10,12 +10,16 @@ const DBClient = class {
     const client = new MongoClient(`mongodb://${db_host}:${db_port}`, {
       useUnifiedTopology: true,
     });
+    let d;
     client.connect((err, data) => {
+      console.log(data, err);
       if (!err) {
         this.status = true;
         this.db = data.db(db_database);
+        this.users = this.db.collection("users");
       }
     });
+    console.log(client.db, " - ", d);
   }
   isAlive() {
     return this.status;
@@ -27,5 +31,4 @@ const DBClient = class {
     return this.db.collection("files").countDocuments();
   }
 };
-
 module.exports = new DBClient();
