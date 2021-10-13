@@ -26,7 +26,7 @@ exports.getConnect = async (req, res) => {
 
   const usr = await DBClient.db
     .collection("users")
-    .findOne({ email: user_credentials[0] });
+    .findOne({ email: [user_credentials] });
 
   if (!usr) return unauthorized(res);
 
