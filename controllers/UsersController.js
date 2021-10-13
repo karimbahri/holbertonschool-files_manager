@@ -22,3 +22,13 @@ exports.postNew = async (req, res) => {
     return res.status(400).json({ error: err });
   }
 };
+
+exports.getMe = async (req, res) => {
+  const usr = DBClient.db
+    .collection("users")
+    .findOne({ _id: ObjectID(req.userID) });
+
+  if (!usr) return res.status(401).json({ error: "Unauthorized" });
+
+  return res.status(200).json({ id: usr._id, email: usr.email });
+};
