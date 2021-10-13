@@ -26,7 +26,7 @@ exports.postNew = async (req, res) => {
 exports.getMe = async (req, res) => {
   const usr = DBClient.db
     .collection("users")
-    .findOne({ _id: ObjectID(req.userID) });
+    .findOne({ _id: ObjectId(req.userID) });
 
   if (!usr) return res.status(401).json({ error: "Unauthorized" });
 
