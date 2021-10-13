@@ -2,6 +2,7 @@
 
 const DBClient = require("../utils/db");
 const sha1 = require("sha1");
+const ObjectId = require("mongodb").ObjectId;
 
 exports.postNew = async (req, res) => {
   try {
