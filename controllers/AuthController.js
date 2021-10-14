@@ -33,12 +33,12 @@ exports.getConnect = async (req, res) => {
   if (!usr.password || usr.password !== sha1(user_credentials[1]))
     return unauthorized(res);
 
-  RedisClient.set(key, usr._id.toString(), 86400); // 24h in seconds
+  redisClient.set(key, usr._id.toString(), 86400); // 24h in seconds
   return res.status(200).json({ token });
 };
 
 exports.getDisconnect = async (req, res) => {
-  await RedisClient.del(`auth_${req.token}`);
+  await redisClient.del(`auth_${req.token}`);
 
   return res.status(204).send();
 };
