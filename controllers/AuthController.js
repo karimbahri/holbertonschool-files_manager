@@ -8,7 +8,7 @@ const unauthorized = (response) =>
   response.status(401).json({ error: "Unauthorized" });
 
 exports.getConnect = async (req, res) => {
-  const authorization = req.header.authorization;
+  const authorization = req.headers.authorization;
 
   if (!authorization) return unauthorized(res);
   if (!(authorization.substring(0, 6) === "Basic")) return unauthorized(res);
