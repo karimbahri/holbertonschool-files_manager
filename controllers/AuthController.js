@@ -18,7 +18,8 @@ exports.getConnect = async (req, res) => {
   );
   const user_credentials = auth_64.split(":");
 
-  if (!user_credentials[0] || !user_credentials[1]) return unauthorized(res);
+  for (let cred_field of user_credentials)
+    if (!cred_field) return unauthorized(res);
 
   const token = uuid();
   const key = `auth_${token}`;
